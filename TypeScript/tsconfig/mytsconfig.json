@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // какой версии js мы хотим скомпилить проект
+    "lib": ["DOM", "ESNext"], // какие дефолт библ подключать к проекту
+    "jsx": "react-jsx", // поддержка jsx
+
+    "experimentalDecorators": true, // поддержка декораторов
+
+    "module": "esnext", // | "NodeNext" |  модули,
+    "rootDir": "./", // |"./src"| корневая директория,
+
+    "moduleResolution": "node", // | "classic" | как резолвятся модули
+    "resolveJsonModule": true, // js и ts код можно было спокойно импортить json модули
+
+    "path": {
+      "@utils": "./src/utils"
+    }, // чтобы использовать алиасы
+
+    "allowJs": false, // разрешает ts импортировать js файлы
+    "checkJs": false, // проверка типов в js файлах
+
+    "declaration": true, // генерация .d.ts
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist", // в какую директорию складывать сбилженный проект
+
+    "removeComments": true, // убрать комменты
+
+    "importsNotUsedAsValues": "remove", // удалять неиспользуемые импорты
+    "downlevelIteration": true, // позволяет использовать спред на сете
+
+    "stripInternal": true, // чтобы использовать @internal
+    "noEmitOnError": true, // если ошибка во время компиляции, тогда не продолжаем процесс
+
+    "isolatedModules": true, // очень сильно ускоряет процесс компиляции, каждый файл проекта компилится как отдельный модуль
+    "allowSyntheticDefaultImports": true, // поддержка export = или import c = require('')
+    "esModuleInterop": true, // помогает сделать модули более совместимыми
+    "forceConsistentCasingInFileNames": true, // на уровне ос один case, делает одинаково
+
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+
+    "strict": true, // строгий режим
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true, // можно false
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false
+  },
+  "include": ["src"], // какие файлы попадут в компиляцию
+  "exclude": ["node_modules"], // исключить
+  "extends": ["./tsconfig.base.json"] // наследование конфигов
+}
