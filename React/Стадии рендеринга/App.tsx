@@ -1,49 +1,49 @@
-import React from 'react'
-import { useEffect, useLayoutEffect, useReducer } from 'react'
+import React from "react";
+import { useEffect, useLayoutEffect, useReducer } from "react";
 
 export const App = () => {
-  const [num, triggerRerender] = useReducer((v) => v + 1, 0)
+  const [num, triggerRerender] = useReducer((v) => v + 1, 0);
 
-  ;(window as any).triggerRerender = triggerRerender
+  (window as any).triggerRerender = triggerRerender;
 
-  console.log('parent: render 1')
+  console.log("parent: render 1");
 
   useLayoutEffect(() => {
-    console.log('parent: layout effect 2')
+    console.log("parent: layout effect 2");
     return () => {
-      console.log('parent: cleanup layout effect 3')
-    }
-  }, [num])
+      console.log("parent: cleanup layout effect 3");
+    };
+  }, [num]);
 
   useEffect(() => {
-    console.log('parent: effect 4')
+    console.log("parent: effect 4");
     return () => {
-      console.log('parent: cleanup effect 5')
-    }
-  }, [num])
+      console.log("parent: cleanup effect 5");
+    };
+  }, [num]);
 
-  return <Child num={num} />
-}
+  return <Child num={num} />;
+};
 
 const Child = ({ num }: { num: number }) => {
-  console.log('child: render 6')
+  console.log("child: render 6");
 
   useLayoutEffect(() => {
-    console.log('child: layout effect 7')
+    console.log("child: layout effect 7");
     return () => {
-      console.log('child: cleanup layout effect 8')
-    }
-  }, [num])
+      console.log("child: cleanup layout effect 8");
+    };
+  }, [num]);
 
   useEffect(() => {
-    console.log('child: effect 9')
+    console.log("child: effect 9");
     return () => {
-      console.log('child: cleanup effect 10')
-    }
-  }, [num])
+      console.log("child: cleanup effect 10");
+    };
+  }, [num]);
 
-  return null
-}
+  return null;
+};
 
 // parent: render 1
 // child: render 6
